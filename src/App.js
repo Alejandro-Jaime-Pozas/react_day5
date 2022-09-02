@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// need to install required packages
+import Navbar from "./components/Navbar";
+import { Routes, Route } from 'react-router-dom'
+import Home from "./components/Home";
+import ViewBlog from "./components/ViewBlog";
+import CreatePost from "./components/CreatePost";
+import Signup from "./components/Signup";
+import Login from "./"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+    return (
+        <>
+            <Navbar />
+                <div className="container">
+                    {/* AlertMessage here */}
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<ViewBlog/>} />
+                        <Route path="/" element={<CreatePost />} />
+                        <Route path="/" element={<Signup />} />
+                        <Route path="/" element={<Login />} />
+                        <Route path="/" element={<Home />} />
+                    </Routes>
+                </div>
+        </>
+    );
 }
 
 export default App;
