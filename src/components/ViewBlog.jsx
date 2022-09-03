@@ -24,7 +24,7 @@ export default function ViewBlog(props) {
     return (
         // want to return a card with a single post's author's username, title, and content. loop/map through all posts
         <div >
-
+            <h1 className='mb-4 text-secondary'>This is the Kekambas Blog:</h1>
             {/* card element here */}
             {posts.map((post, i) => {
                 return (
@@ -32,7 +32,7 @@ export default function ViewBlog(props) {
                         <div className="card-header">{post.author.username}</div>
                             <div className="card-body text-primary">
                                 {/* COME BACK TURN THIS a INTO A LINK TO EDIT/DELETE CARD */}
-                                <a href="/">
+                                <a href="/viewpost">
                                 <h5 className="card-title">{post.title}</h5>
                                 </a>
                                 <p className="card-text">{post.content}</p>

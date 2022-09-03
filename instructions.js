@@ -45,19 +45,24 @@
     // create create post page
 
         // fetch user from db and post new post 
-        // show form w title, body, submit 
+// show form w title, body, submit 
 
     // create login page
 
         // fetch user email/username pswd from db 
-        // show for w username/email , pswd , submit btn 
+// show form w username/email , pswd , submit btn 
 
     // create signup page
 
         // fetch users and add a new user 
-        // show form w email , username , pswd , conf pswd, submit btn 
+// show form w email , username , pswd , conf pswd, submit btn 
 
-    // create view/edit post page
+    // create view/delete post page
 
         // fetch data for a specific post 
         // show form w post title, body, edit, delete btns
+
+    // create edit post page
+
+        // fetch data for a specific post (can take post selected from view post?)
+// show form w post title, body, edit, delete btns

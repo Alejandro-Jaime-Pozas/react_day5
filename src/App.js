@@ -7,6 +7,8 @@ import ViewBlog from "./components/ViewBlog";
 import CreatePost from "./components/CreatePost";
 import Signup from "./components/Signup";
 import Login from "./components/Login"
+import ViewPost from './components/ViewPost';
+import EditPost from './components/EditPost';
 
 function App() {
 
@@ -50,6 +52,8 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         {/* add logout method with useState loggedin=false */}
                         <Route path="/logout" element={<Login />} />
+                        <Route path="/viewpost" element={<ViewPost />} />
+                        <Route path="/editpost" element={<EditPost />} />
                     </Routes>
                     </div>
                 </div>
