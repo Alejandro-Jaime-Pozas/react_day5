@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login"
 import ViewPost from './components/ViewPost';
 import EditPost from './components/EditPost';
+import AlertMessage from './components/AlertMessage';
 
 function App() {
 
@@ -43,12 +44,12 @@ function App() {
                 <div className="container ">
                     <br />
                     <div className="row justify-content-center">                        
-                    {/* AlertMessage here */}
+                    {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null }
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/viewblog" element={<ViewBlog flashMessage={flashMessage} />} />
+                        <Route path="/" element={<Home  />} />
+                        <Route path="/viewblog" element={<ViewBlog  />} />
                         <Route path="/createpost" element={<CreatePost />} />
-                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/signup" element={<Signup flashMessage={flashMessage} />} />
                         <Route path="/login" element={<Login />} />
                         {/* add logout method with useState loggedin=false */}
                         <Route path="/logout" element={<Login />} />

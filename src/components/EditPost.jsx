@@ -3,7 +3,7 @@ import React from 'react'
 export default function EditPost() {
     return (
         <div className="text-center">
-            <h1>Edit Post</h1>
+            <h4>Edit Post</h4>
             <br/>
                 <form > 
                     form.csrf_token

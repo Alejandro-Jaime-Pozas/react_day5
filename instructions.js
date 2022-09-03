@@ -42,6 +42,11 @@
 // fetch data for all posts from api
 // view card elements for each blog, include title , body , user 
 
+// create signup page
+
+// fetch users and add a new user 
+// show form w email , username , pswd , conf pswd, submit btn 
+
     // create create post page
 
         // fetch user from db and post new post 
@@ -51,11 +56,6 @@
 
         // fetch user email/username pswd from db 
 // show form w username/email , pswd , submit btn 
-
-    // create signup page
-
-        // fetch users and add a new user 
-// show form w email , username , pswd , conf pswd, submit btn 
 
     // create view/delete post page
 
