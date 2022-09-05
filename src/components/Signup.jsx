@@ -15,7 +15,7 @@ export default function Signup(props) {
 
         // check if pswds do not match
         if (password !== confirmPass) {
-            props.FlashMessage('Make sure your passwords match!', 'danger')
+            props.flashMessage('Make sure your passwords match!', 'danger')
         } else{
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
@@ -38,10 +38,11 @@ export default function Signup(props) {
                 .then(data => {
                     if (data.error){ // this checks for the API error that is in backend code (400 error)
                         console.error(data.error)
+                        props.flashMessage(`A user with that email/username already exists. Try another one.`, 'info')
                     } else{
                         // console.log(data)
-                        props.flashMessage(`You have registered successfully, welcome ${username}!`, 'success')
-                        navigate('/')
+                        props.flashMessage(`You have registered successfully, make sure to login ${username}!`, 'success')
+                        navigate('/login')
                     }
                 })
         }

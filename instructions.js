@@ -1,3 +1,5 @@
+// VOY A HACER LO MINIMO QUE SE TIENE QUE HACER PARA LA PAGINA AHORITA, YA TENIENDO TODO FUNCIONAL, VOY AGREGAR COSAS COMO UN FLASH MSG QUE TE AVISA SI EL LOGIN/SIGNUP ESTA MAL ENTRE OTRAS COSAS....
+
 // A user should be able to 
 //     sign up, 
 //     log in and 
@@ -52,17 +54,29 @@
         // fetch user from db and post new post 
 // show form w title, body, submit 
 
-    // create login page
+// create login page
 
-        // fetch user email/username pswd from db 
+// fetch user email/username pswd from db 
 // show form w username/email , pswd , submit btn 
 
     // create view/delete post page
 
         // fetch data for a specific post 
-        // show form w post title, body, edit, delete btns
+// show form w post title, body, edit, delete btns
 
     // create edit post page
 
         // fetch data for a specific post (can take post selected from view post?)
 // show form w post title, body, edit, delete btns
+
+    // only allow loggin users to view create post, edit/delete post
+
+
+
+
+// optional:
+    // sort posts by most recent on top
+    // add notification of new posts beside the view blog in navbar
+    // add more design like how to put images in (set img as bg)
+    // add settings page where user can edit their username, email and pswd
+    // remove flash msg if user did not remove after first render page

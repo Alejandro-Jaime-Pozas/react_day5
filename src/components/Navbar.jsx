@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
         <nav className="navbar navbar-expand-lg bg-primary navbar-dark ">
             <div className="container-fluid d-flex flex-column">
@@ -24,7 +24,7 @@ export default function Navbar() {
                 <Link className="nav-link" to="/login">Login.</Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/logout">Logout.</Link>
+                <Link className="nav-link" to="/login" onClick={props.logout} >Logout.</Link>
                 </li>
         </ul>
         </div>
