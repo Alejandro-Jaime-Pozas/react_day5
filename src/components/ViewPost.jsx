@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function ViewPost() {
+export default function ViewPost(props) {
+
+    let navigate = useNavigate()
+
+    // already have the postID, so now fetch that postID from API and render results
+    useEffect(() => {
+        fetch(`https://kekambas-blog.herokuapp.com//blog/posts/${props.postID}`)
+        .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setPosts(data)
+                    // console.log(data)
+                }
+            });
+            
+        }, {} )
+
+
     return (
 
     <div className="text-center">

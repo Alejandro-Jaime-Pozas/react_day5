@@ -26,6 +26,7 @@ export default function Login(props) {
             // redirect user to homepage once they successfully logged in, show flash msg, set loggedin to true
             // console.log('need to set localstorage token to: ', data)
             localStorage.setItem("token", data.token)
+            // console.log(localStorage.getItem("token"))
             props.login()
             // console.log(props.loggedIn)
             props.flashMessage(`Welcome back ${username}!`, 'success')

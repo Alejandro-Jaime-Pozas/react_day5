@@ -18,8 +18,15 @@ function App() {
     const [message, setMessage] = useState(null); 
     const [category, setCategory] = useState(null); 
     // CHECK THIS BELOW TO SEE IF LOGGEDIN WORKS FROM LOCALSTORAGE OR IF NEED TO CHANGE TOKEN/EXPIRATION NAMES
-    const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token')) ? true : false) // gets token and expiration from Application>local Storage
+    const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token')) ? true : false); // gets token and expiration from Application>local Storage
+    // need a global state for the postID, allow a click on ViewBlog to single post to change the state to that postID, then take that state of postID and show its contents
+    const [postID, setPostID] = useState(0);
+
     let navigate = useNavigate()
+
+    const getPostID = (postID) => {
+        setPostID(postID);
+    }
     // inserting a flash msg and category to a fn so that it can be pushed as a prop to other js files
     const flashMessage = (message, category) => {
         setMessage(message);
@@ -56,11 +63,14 @@ function App() {
                     {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null }
                     <Routes>
                         <Route path="/" element={<Home  />} />
-                        <Route path="/viewblog" element={<ViewBlog  />} />
-                        <Route path="/createpost" element={<CreatePost loggedIn={loggedIn} needToLogIn={needToLogIn} />} />
+                        <Route path="/viewblog" element={<ViewBlog getPostID={getPostID} postID={postID} />} />
+                        {/* must be logged in */}
+                        <Route path="/createpost" element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} needToLogIn={needToLogIn} />} />
                         <Route path="/signup" element={<Signup flashMessage={flashMessage} />} />
                         <Route path="/login" element={<Login flashMessage={flashMessage} login={login} loggedIn={loggedIn} />} />
+                        {/* must be logged in */}
                         <Route path="/viewpost" element={<ViewPost />} />
+                        {/* must be logged in */}
                         <Route path="/editpost" element={<EditPost />} />
                     </Routes>
                     </div>

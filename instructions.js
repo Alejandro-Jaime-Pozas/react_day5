@@ -49,9 +49,9 @@
 // fetch users and add a new user 
 // show form w email , username , pswd , conf pswd, submit btn 
 
-    // create create post page
+// create create post page
 
-        // fetch user from db and post new post 
+// fetch user from db and post new post 
 // show form w title, body, submit 
 
 // create login page
@@ -80,3 +80,4 @@
     // add more design like how to put images in (set img as bg)
     // add settings page where user can edit their username, email and pswd
     // remove flash msg if user did not remove after first render page
+    // allow user to get only their posts

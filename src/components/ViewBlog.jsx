@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import SinglePost from './SinglePost';
 
 export default function ViewBlog(props) {
 
@@ -19,26 +20,21 @@ export default function ViewBlog(props) {
             
         }, [] )
         
-        console.log(posts[0])
+        // console.log(posts[0])
+        let navigate = useNavigate()
+
+        function handleClick(post_id) {
+            console.log('Clicked')
+            props.getPostID(post_id)
+            // navigate('/viewpost')
+        }
     
     return (
         // want to return a card with a single post's author's username, title, and content. loop/map through all posts
         <div >
             <h1 className='mb-4 text-secondary'>This is the Kekambas Blog:</h1>
             {/* card element here */}
-            {posts.map((post, i) => {
-                return (
-                    <div className="card border-primary mb-3 w-50 p-0" key={i} >
-                        <div className="card-header">{post.author.username}</div>
-                            <div className="card-body text-primary">
-                                {/* COME BACK TURN THIS a INTO A LINK TO EDIT/DELETE CARD */}
-                                <a href="/viewpost">
-                                <h5 className="card-title">{post.title}</h5>
-                                </a>
-                                <p className="card-text">{post.content}</p>
-                            </div>
-                    </div>
-                )}
+            {posts.map((post, i) => <SinglePost key={i} handleClick={handleClick} post_id={post.id} pusername={post.author.username} ptitle={post.title} pcontent={post.content} postID={props.postID} />
             )}
 
         </div>

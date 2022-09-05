@@ -30,12 +30,12 @@ export default function CreatePost(props) {
         
         fetch("https://kekambas-blog.herokuapp.com//blog/posts", requestOptions)
           .then(response => response.json())
-          .then(result => console.log(result))
+          .then(result => {
+            console.log(result);
+            props.flashMessage('You have created a post successfully', 'success')
+            navigate('/viewblog');
+          })
           .catch(error => console.log('error', error));
-
-        navigate('/viewblog')
-        props.flashMessage('You have created a post successfully', 'success')
-
     }
 
 
