@@ -11,6 +11,10 @@ export default function Navbar(props) {
             </button>
             <div className="collapse navbar-collapse lead" id="navbarNav">
             <ul className="navbar-nav ">
+                {/* add notification badges
+                <button type="button" class="btn btn-primary">
+                Notifications <span class="badge bg-light">0</span>
+                </button> */}
                 <li className="nav-item">
                 <Link className="nav-link" to="/viewblog">View Blog.</Link>
                 </li>
