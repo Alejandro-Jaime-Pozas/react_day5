@@ -59,17 +59,17 @@
 // fetch user email/username pswd from db 
 // show form w username/email , pswd , submit btn 
 
-    // create view/delete post page
+// create view/delete post page
 
-        // fetch data for a specific post 
+// fetch data for a specific post 
 // show form w post title, body, edit, delete btns
 
-    // create edit post page
+// create edit post page
 
-        // fetch data for a specific post (can take post selected from view post?)
+// fetch data for a specific post (can take post selected from view post?)
 // show form w post title, body, edit, delete btns
 
-    // only allow loggin users to view create post, edit/delete post
+// only allow loggin users to view create post, edit/delete post
 
 
 

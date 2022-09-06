@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 export default function CreatePost(props) {
 
     let navigate = useNavigate();
+    props.needToLogIn()
+
     // props.needToLogIn()
     // create handleSubmit: e.preventdefault, get form data, fetch user token, create new post, redirect to all posts
     let handleSubmit = e => {

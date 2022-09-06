@@ -20,7 +20,7 @@ function App() {
     // CHECK THIS BELOW TO SEE IF LOGGEDIN WORKS FROM LOCALSTORAGE OR IF NEED TO CHANGE TOKEN/EXPIRATION NAMES
     const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token')) ? true : false); // gets token and expiration from Application>local Storage
     // need a global state for the postID, allow a click on ViewBlog to single post to change the state to that postID, then take that state of postID and show its contents
-    const [postID, setPostID] = useState(0);
+    const [postID, setPostID] = useState(1);
 
     let navigate = useNavigate()
 
@@ -46,7 +46,7 @@ function App() {
 
     const needToLogIn = () => {
         if (loggedIn){
-            console.log('user is logged in and can create posts')
+            console.log('user is logged in and can create/edit posts')
         } else{
             flashMessage('You need to login to view this page', 'info')
             navigate('/login')
@@ -59,19 +59,19 @@ function App() {
             <Navbar logout={logout} flashMessage={flashMessage} />
                 <div className="container ">
                     <br />
-                    <div className="row justify-content-center">                        
+                    <div className="col ">
                     {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null }
                     <Routes>
                         <Route path="/" element={<Home  />} />
                         <Route path="/viewblog" element={<ViewBlog getPostID={getPostID} postID={postID} />} />
                         {/* must be logged in */}
-                        <Route path="/createpost" element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} needToLogIn={needToLogIn} />} />
+                        < Route path="/createpost" element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} needToLogIn={needToLogIn} />} />
                         <Route path="/signup" element={<Signup flashMessage={flashMessage} />} />
                         <Route path="/login" element={<Login flashMessage={flashMessage} login={login} loggedIn={loggedIn} />} />
                         {/* must be logged in */}
-                        <Route path="/viewpost" element={<ViewPost />} />
+                        < Route path="/viewpost" element={<ViewPost flashMessage={flashMessage} postID={postID} needToLogIn={needToLogIn} />} />
                         {/* must be logged in */}
-                        <Route path="/editpost" element={<EditPost />} />
+                        < Route path="/editpost" element={<EditPost flashMessage={flashMessage} postID={postID} needToLogIn={needToLogIn} />} />
                     </Routes>
                     </div>
                 </div>

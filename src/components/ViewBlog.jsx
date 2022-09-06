@@ -25,8 +25,9 @@ export default function ViewBlog(props) {
 
         function handleClick(post_id) {
             console.log('Clicked')
-            props.getPostID(post_id)
-            // navigate('/viewpost')
+            props.getPostID(post_id);
+            localStorage.setItem("post_id", post_id)
+            navigate('/viewpost')
         }
     
     return (

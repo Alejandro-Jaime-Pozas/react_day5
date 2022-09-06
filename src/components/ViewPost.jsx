@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function ViewPost(props) {
 
     let navigate = useNavigate()
+    props.needToLogIn()
 
+    const [post, setPost] = useState([])
     // already have the postID, so now fetch that postID from API and render results
     useEffect(() => {
         fetch(`https://kekambas-blog.herokuapp.com//blog/posts/${props.postID}`)
@@ -13,12 +15,40 @@ export default function ViewPost(props) {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    setPosts(data)
-                    // console.log(data)
+                    console.log(data)
+                    setPost(data)
                 }
             });
             
-        }, {} )
+    }, [props.postID] )
+
+    let handleDelete = e => {
+        e.preventDefault();
+        let token = localStorage.getItem("token")
+        // fetch method to delete the current post, takes in post number, and the user's token
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+        
+        var requestOptions = {
+          method: 'DELETE',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        
+        fetch(`https://kekambas-blog.herokuapp.com//blog/posts/${props.postID}`, requestOptions)
+          .then(response => response.json())
+          .then(data => {
+            if (data.error) {
+                props.flashMessage('You are not authorized to delete this post', 'warning')
+                console.log(data.error)
+            } else {
+                props.flashMessage('You have deleted your post successfully', 'info')
+                // console.log(data)
+                navigate('/')
+            }
+        });
+
+    }
 
 
     return (
@@ -27,10 +57,11 @@ export default function ViewPost(props) {
     <br />
     <div className="card text-start ">
         <div className="card-body">
-            <h5 className="card-title mb-3 text-primary">title</h5>
-            <h6 className="card-subtitle mb-2 text-muted">content</h6>
+            <h5 className="card-title mb-3 text-primary">{post.title}</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{post.content}</h6>
             <br />
-            <h6 className="card-subtitle mb-2 text-muted">author.username</h6>
+            {/* ASK BRIAN WHY THIS DID NOT WORKKKKK data.author.username*/}
+            {/* <h6 className="card-subtitle mb-2 text-muted">{post.author.id}</h6> */}
         </div>
     </div>
     <br/>
@@ -41,7 +72,7 @@ export default function ViewPost(props) {
         <button type="button" className="btn btn-danger w-50" data-bs-toggle="modal" data-bs-target="#deleteModal">
             Delete Post
         </button>
-        <div className="modal fade" id="deleteModal" tabindex="-1">
+        <div className="modal fade" id="deleteModal" tabIndex="-1">
             <div className="modal-dialog" >
             <div className="modal-content">
                 <div className="modal-header">
@@ -54,7 +85,7 @@ export default function ViewPost(props) {
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="/viewblog" className="btn btn-danger">Delete</a>
+                    <a onClick={handleDelete} className="btn btn-danger" data-bs-dismiss="modal">Delete</a>
                 </div>
             </div>
         </div>
