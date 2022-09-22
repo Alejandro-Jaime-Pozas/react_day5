@@ -29,7 +29,7 @@ export default function ViewBlog(props) {
             localStorage.setItem("post_id", post_id)
             navigate('/viewpost')
         }
-    
+
     return (
         // want to return a card with a single post's author's username, title, and content. loop/map through all posts
         <div >
