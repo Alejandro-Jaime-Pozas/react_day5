@@ -51,10 +51,10 @@ export default function EditPost(props) {
             <form onSubmit={handleSubmit} >
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
-                    <input type="text" className='form-control' placeholder='title content goes here' name='title'/>
+                    <input type="text" className='form-control' placeholder='title content goes here' name='title' required/>
                     <br />
                     <label htmlFor="content">Content</label>
-                    <input type="text" className='form-control' placeholder='body content goes here' name='content'/>
+                    <input type="text" className='form-control' placeholder='body content goes here' name='content' required/>
                     <br />
                     <input type="submit" value='Submit' className='btn btn-primary w-50 mt-3' />
                 </div>

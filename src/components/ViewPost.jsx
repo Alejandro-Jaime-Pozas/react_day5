@@ -44,7 +44,7 @@ export default function ViewPost(props) {
             } else {
                 props.flashMessage('You have deleted your post successfully', 'info')
                 // console.log(data)
-                navigate('/')
+                navigate('/viewblog')
             }
         });
     }
@@ -84,7 +84,8 @@ export default function ViewPost(props) {
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a onClick={handleDelete} className="btn btn-danger" data-bs-dismiss="modal">Delete</a>
+                    {/* for some reason, if you do useNavigate and have an href in element, href is disregarded */}
+                    <a onClick={handleDelete} href='/' className="btn btn-danger" data-bs-dismiss="modal">Delete</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,21 @@
+[debug] [2022-09-30T18:38:11.449Z] ----------------------------------------------------------------------
+[debug] [2022-09-30T18:38:11.450Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Propietario\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-30T18:38:11.451Z] CLI Version:   11.12.0
+[debug] [2022-09-30T18:38:11.451Z] Platform:      win32
+[debug] [2022-09-30T18:38:11.451Z] Node Version:  v16.17.0
+[debug] [2022-09-30T18:38:11.452Z] Time:          Fri Sep 30 2022 13:38:11 GMT-0500 (Central Daylight Time)
+[debug] [2022-09-30T18:38:11.452Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-30T18:38:11.459Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-30T18:38:11.460Z] > authorizing via signed-in user (ajaimepozas@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Propietario\OneDrive\Coding Temple\Week8-React\Day5\react_social_media
+
